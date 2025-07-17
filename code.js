@@ -86,23 +86,25 @@ animatedElements.forEach(el => {
 // Manejo del formulario de contacto
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
     // Obtener datos del formulario
     const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
+    const name = formData.get('entry.1705153159');
+    const email = formData.get('entry.484523097');
+    const message = formData.get('entry.1584341190');
+
     // Validación básica
     if (!name || !email || !message) {
+        e.preventDefault();
         showNotification('Por favor, completa todos los campos.', 'error');
         return;
     }
-    
-    // Simular envío del formulario
-    showNotification('¡Mensaje enviado correctamente! Te contactaré pronto.', 'success');
-    contactForm.reset();
+
+    // Mostrar notificación de éxito después de enviar
+    contactForm.target = "hidden_iframe";
+    setTimeout(() => {
+        showNotification('¡Mensaje enviado correctamente! Te contactaré pronto.', 'success');
+        contactForm.reset();
+    }, 500);
 });
 
 // Función para mostrar notificaciones
