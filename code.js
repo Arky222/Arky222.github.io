@@ -242,7 +242,7 @@ window.addEventListener('scroll', () => {
 const style = document.createElement('style');
 style.textContent = `
     .nav-link.active {
-        color: #3b82f6 !important;
+        color: #10b981 !important;
     }
     .nav-link.active::after {
         width: 100% !important;
